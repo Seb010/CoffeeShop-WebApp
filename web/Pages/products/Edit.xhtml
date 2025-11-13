@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditProductsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditProductsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{productsController.selected.id}" title="#{bundle.EditProductsTitle_id}" required="true" requiredMessage="#{bundle.EditProductsRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditProductsLabel_name}" for="name" />
+                    <h:inputText id="name" value="#{productsController.selected.name}" title="#{bundle.EditProductsTitle_name}" required="true" requiredMessage="#{bundle.EditProductsRequiredMessage_name}"/>
+                    <h:outputLabel value="#{bundle.EditProductsLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{productsController.selected.description}" title="#{bundle.EditProductsTitle_description}" />
+                    <h:outputLabel value="#{bundle.EditProductsLabel_price}" for="price" />
+                    <h:inputText id="price" value="#{productsController.selected.price}" title="#{bundle.EditProductsTitle_price}" required="true" requiredMessage="#{bundle.EditProductsRequiredMessage_price}"/>
+                    <h:outputLabel value="#{bundle.EditProductsLabel_available}" for="available" />
+                    <h:inputText id="available" value="#{productsController.selected.available}" title="#{bundle.EditProductsTitle_available}" />
+                </h:panelGrid>
+                <h:commandLink action="#{productsController.update}" value="#{bundle.EditProductsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditProductsViewLink}"/>
+                <br />
+                <h:commandLink action="#{productsController.prepareList}" value="#{bundle.EditProductsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditProductsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

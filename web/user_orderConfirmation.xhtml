@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Order Confirmation | Coffee Shop</title>
+    <h:outputStylesheet name="css/cssLayout.css"/>
+</h:head>
+<h:body>
+    <ui:composition template="User_Template.xhtml">
+        <ui:define name="content">
+            <div class="container">
+                <h1>Order Confirmation</h1>
+
+
+                <h:form>
+                    <!-- Order Details -->
+                    <h:panelGroup>
+                        <h2>Your Order has been placed successfully!</h2>
+                        <h2>Your Order Number: #{menuBeans.orderId}</h2>
+
+                        <h3>Order Summary</h3>
+
+                        <!-- Display Basket Data -->
+                        <h:dataTable value="#{menuBeans.basket}" var="item" class="styled-basket-table">
+                            <h:column>
+                                <f:facet name="header">Name</f:facet>
+                                #{item.name}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Quantity</f:facet>
+                                #{item.quantity}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Price</f:facet>
+                                £ #{item.price}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Subtotal</f:facet>
+                                £ #{item.price * item.quantity}
+                            </h:column>
+                        </h:dataTable>
+
+                        <!-- Display Total Cost -->
+                        <h3>Total: £ #{menuBeans.getTotalCost()}</h3>
+
+                        <!-- Display Collection Time -->
+                        <h3>Collection Time: #{menuBeans.collectionTime}</h3>
+                    </h:panelGroup>
+
+                    <!-- Thank You and Back to Menu -->
+                    <h:panelGroup>
+                        <h:outputText value="Thank you for your order! You can now collect your order at the selected time." />
+                        <h:commandButton value="Back to Home Page"
+                                         action="#{menuBeans.clearBasketAfterCheckout}"
+                                         styleClass="back-to-menu-button"
+                                         ajax="false"/>
+                    </h:panelGroup>
+
+                    <!-- Clear Basket after confirmation -->
+                    <!-- Ensure this is only called after rendering the page -->
+          
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
+

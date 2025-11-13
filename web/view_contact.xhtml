@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="jakarta.faces.core">
+    
+
+    <h:head>
+        <title>Coffee Shop | Contact Us</title>
+        <h:outputStylesheet name="styles.css"/>
+    </h:head>
+    <h:body data-theme="dark">
+        <ui:composition template="View_Template.xhtml">
+            <ui:define name="content">
+     
+                <div class="contact-us-form-container" id="contactForm">
+                    <h1>Contact Us Form</h1>
+                    <h:form class="contact-us-form">
+                        <div class="form-group">
+                            <h:outputLabel value="First Name     " for="firstName" />
+                            <h:inputText id="firstName" value="#{contactusBean.firstName}" required="true" requiredMessage="First name is required" />
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel value="Last Name     " for="lastName" />
+                            <h:inputText id="lastName" value="#{contactusBean.lastName}" required="true" requiredMessage="Last name is required" />
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel value="Email     " for="email" />
+                            <h:inputText id="email" value="#{contactusBean.email}" required="true" requiredMessage="Email is required" />
+                        </div>
+
+                        <div class="form-group">
+                            <h:outputLabel value="Message     " for="message" />
+                            <h:inputTextarea id="message" value="#{contactusBean.message}" required="true" requiredMessage="Message is required" />
+                        </div>
+                        <br></br>
+
+                        <!-- Google reCAPTCHA -->
+                        <div class="form-grou">
+                            <script src="https://www.recaptcha.net/recaptcha/api.js" async="async" defer="defer"></script>
+                            <div class="g-recaptcha" data-sitekey="6LdtDQIrAAAAAEh1hlQOisXZo7VT5ajw_lgRPxJm"></div>
+                        </div>
+                        <br></br>
+                        
+
+                        <h:commandButton 
+                            value="Submit" 
+                            action="#{contactusBean.manageForm()}" 
+                            styleClass="contact-button">
+                            <f:ajax execute="@form" render="messages successMessageGroup"/>
+                        </h:commandButton>
+
+                        <!-- Messages panel for displaying errors -->
+                        <h:panelGroup id="messages">
+                            <h:messages styleClass="error-messages" globalOnly="false" />
+                        </h:panelGroup>
+                        
+                        <!-- Success message panel -->
+                        <h:panelGroup id="successMessageGroup">
+                            <h:outputText value="#{contactusBean.formSentSuccessful}" 
+                                          rendered="#{contactusBean.isFormSubmitted}" 
+                                          styleClass="success-message" />
+                        </h:panelGroup>
+                    </h:form>
+
+                    
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

@@ -1,0 +1,170 @@
+/* === Base Styling === */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Remove the white background from the form and move it closer to the left */
+form.jsfcrud_list_form {
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto; /* Center align the form */
+    margin-left: 0; /* Move the table closer to the left side */
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Table Styling */
+h:dataTable {
+    width: 100%; /* Ensure the table uses the full width of the form */
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+    table-layout: auto; /* Allow the table to adjust based on content */
+    background-color: #ffffff; /* Maintain white background for the table */
+}
+
+th, td {
+    padding: 14px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+    text-align: left;
+}
+
+td {
+    background-color: white;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* Ensure the last column (email) is not hidden */
+td:last-child {
+    min-width: 150px; /* Set a minimum width for the last column (email) */
+    word-wrap: break-word; /* Ensure long text wraps properly */
+}
+
+/* Specific Column Widths */
+th:nth-child(5), td:nth-child(5) {
+    min-width: 200px; /* Set a wider width for the email column */
+}
+
+/* Alternate row styling */
+tr.jsfcrud_odd_row {
+    background-color: #f9fbfc;
+}
+
+tr.jsfcrud_even_row {
+    background-color: #f0f4f7;
+}
+
+/* === Text and Messages === */
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+h\:messages {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* === Links and Commands === */
+h\:commandLink, a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 10px;
+    transition: color 0.2s ease-in-out;
+}
+
+h\:commandLink:hover,
+a:hover {
+    color: #2d6a9f;
+}
+
+/* === Buttons === */
+h\:commandLink[value="#{bundle.ListProductsCreateLink}"] {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+h\:commandLink[value="#{bundle.ListProductsCreateLink}"]:hover {
+    background-color: #2d6a9f;
+}
+
+/* Return link button */
+h\:link {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+h\:link:hover {
+    background-color: #2d6a9f;
+}
+
+/* Container for action links */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+/* Shared style for action links */
+.action-button {
+    padding: 6px 12px;
+    font-size: 13px;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+/* Specific colors for actions */
+.view-button {
+    background-color: #3498db;
+}
+
+.edit-button {
+    background-color: #f39c12;
+}
+
+.delete-button {
+    background-color: #e74c3c;
+}
+
+/* Hover effects */
+.view-button:hover {
+    background-color: #2d6a9f;
+}
+
+.edit-button:hover {
+    background-color: #d78b0b;
+}
+
+.delete-button:hover {
+    background-color: #c0392b;
+}

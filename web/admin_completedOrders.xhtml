@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Completed Orders</title>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+        <ui:composition template="Admin_Template.xhtml">
+            <ui:define name="content">
+                <h2>Completed Orders</h2>
+
+                <h:form id="orders-form">
+                    <h:dataTable value="#{viewOrdersBean.completedOrders}" var="order" border="1" styleClass="order-table" id="order-table">
+                        <h:column>
+                            <f:facet name="header">Order ID</f:facet>
+                            #{order.id}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">User ID</f:facet>
+                            #{order.userId}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Total (£)</f:facet>
+                            #{order.totalPrice}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Status</f:facet>
+                            #{order.status}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Collection Time</f:facet>
+                            #{order.collectionTime}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Ordered At</f:facet>
+                            #{order.orderDate}
+                        </h:column>
+
+                        <!-- Nested table for order items -->
+                        <h:column>
+                            <f:facet name="header">Items</f:facet>
+                            <h:dataTable value="#{viewOrdersBean.getOrderItemsByOrderId(order.id)}" var="item" border="1" styleClass="order-items-table">
+                                <h:column>
+                                    <f:facet name="header">Product</f:facet>
+                                    #{item.productName}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Qty</f:facet>
+                                    #{item.quantity}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Price (£)</f:facet>
+                                    #{item.price}
+                                </h:column>
+                            </h:dataTable>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

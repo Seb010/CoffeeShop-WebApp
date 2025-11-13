@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Coffee Shop | Profile</title>
+        <h:outputStylesheet name="css/default.css" />
+        <h:outputStylesheet name="css/cssLayout.css" />
+        <h:outputStylesheet name="css/profile.css" />
+    </h:head>
+    <h:body>
+        <ui:composition template="User_Template.xhtml">
+            <ui:define name="content">
+                <div class="profile-page">
+                    <h1 class="profile-title">View Profile</h1>
+                    
+                    <!-- Display User Information -->
+                    <h:panelGrid columns="2" styleClass="profile-grid">
+                        <h:outputLabel value="Username:" styleClass="profile-label"/>
+                        <h:outputText value="#{loginBean.username}" styleClass="profile-value"/>
+
+                        <h:outputLabel value="Full Name:" styleClass="profile-label"/>
+                        <h:outputText value="#{loginBean.fullName}" styleClass="profile-value"/>
+
+                        <h:outputLabel value="Email:" styleClass="profile-label"/>
+                        <h:outputText value="#{loginBean.email}" styleClass="profile-value"/>
+
+                        <h:outputLabel value="Phone Number:" styleClass="profile-label"/>
+                        <h:outputText value="#{loginBean.phoneNumber}" styleClass="profile-value"/>
+                    </h:panelGrid>
+
+                    <!-- Logout Button -->
+                    <h:form>
+                        <h:commandButton value="Logout" action="view_login.xhtml" styleClass="user-profile-logout" />
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

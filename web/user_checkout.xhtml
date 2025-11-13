@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Coffee Shop | Checkout</title>
+    <h:outputStylesheet name="css/cssLayout.css"/>
+</h:head>
+<h:body>
+    <ui:composition template="User_Template.xhtml">
+        <ui:define name="content">
+            <div class="container">
+                <h1>Checkout</h1>
+
+                <h:form id="checkoutForm">
+                    <!-- Review Basket -->
+                    <h:panelGroup>
+                        <h2>Basket Items</h2>
+                        <h:dataTable value="#{menuBeans.basket}" var="item" class="styled-basket-table">
+                            <h:column>
+                                <f:facet name="header">Name</f:facet>
+                                #{item.name}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Quantity</f:facet>
+                                #{item.quantity}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Price</f:facet>
+                                £ #{item.price}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Subtotal</f:facet>
+                                £ #{item.price * item.quantity}
+                            </h:column>
+                        </h:dataTable>
+
+                        <h3>Total: £ #{menuBeans.getTotalCost()}</h3>
+                    </h:panelGroup>
+
+                    <!-- Select Collection Time -->
+                    <h:panelGroup>
+                        <h:outputText value="Select collection time for #{menuBeans.today}: " />
+                        <h:selectOneMenu id="collectionTime" value="#{menuBeans.collectionTime}" required="true"  requiredMessage="Select a time for collection">
+                            <f:selectItem itemLabel="Select Time" itemValue="" noSelectionOption="true"/>
+                            <f:selectItems value="#{menuBeans.availableTimes}" />
+                        </h:selectOneMenu>
+                        <h:message for="collectionTime" styleClass="error-message" />
+                    </h:panelGroup>
+
+                    <!-- Proceed to Checkout -->
+                    <h:commandButton value="Proceed to Checkout"
+                                     action="#{menuBeans.confirmOrder}"
+                                     styleClass="checkout-button"/>
+                </h:form>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
+
