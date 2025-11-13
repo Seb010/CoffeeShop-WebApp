@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOrdersTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOrdersLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{ordersController.selected.id}" title="#{bundle.EditOrdersTitle_id}" required="true" requiredMessage="#{bundle.EditOrdersRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditOrdersLabel_totalPrice}" for="totalPrice" />
+                    <h:inputText id="totalPrice" value="#{ordersController.selected.totalPrice}" title="#{bundle.EditOrdersTitle_totalPrice}" required="true" requiredMessage="#{bundle.EditOrdersRequiredMessage_totalPrice}"/>
+                    <h:outputLabel value="#{bundle.EditOrdersLabel_status}" for="status" />
+                    <h:inputText id="status" value="#{ordersController.selected.status}" title="#{bundle.EditOrdersTitle_status}" />
+                    <h:outputLabel value="#{bundle.EditOrdersLabel_collectionTime}" for="collectionTime" />
+                    <h:inputText id="collectionTime" value="#{ordersController.selected.collectionTime}" title="#{bundle.EditOrdersTitle_collectionTime}" required="true" requiredMessage="#{bundle.EditOrdersRequiredMessage_collectionTime}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOrdersLabel_orderDate}" for="orderDate" />
+                    <h:inputText id="orderDate" value="#{ordersController.selected.orderDate}" title="#{bundle.EditOrdersTitle_orderDate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOrdersLabel_userId}" for="userId" />
+                    <h:selectOneMenu id="userId" value="#{ordersController.selected.userId}" title="#{bundle.EditOrdersTitle_userId}" required="true" requiredMessage="#{bundle.EditOrdersRequiredMessage_userId}">
+                        <f:selectItems value="#{usersController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{ordersController.update}" value="#{bundle.EditOrdersSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditOrdersViewLink}"/>
+                <br />
+                <h:commandLink action="#{ordersController.prepareList}" value="#{bundle.EditOrdersShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditOrdersIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

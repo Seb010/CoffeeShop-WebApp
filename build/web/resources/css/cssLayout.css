@@ -1,0 +1,1110 @@
+/* GENERAL STYLES */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  
+}
+
+
+.page-container {
+    flex-grow: 1;  
+    width: 100%;
+    display: flex;
+    flex-direction: column;  
+}
+/* ------------- Header-------------*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #3b1d14; 
+    color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100%;  
+    box-sizing: border-box;  
+    margin: 0;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+}
+
+.nav-container {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;  
+    align-items: center;
+}
+
+.menu li {
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #d2691e;  
+}
+
+.basket-link {
+    font-size: 18px;  
+    color: white;  
+    text-decoration: none; 
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.basket-link i {
+    margin-right: 8px;  
+    font-size: 20px; 
+}
+
+.basket-link:hover {
+    color: #f39c12;  
+}
+/* The container for the dropdown */
+.dropdown-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* The dropdown menu (hidden by default) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 5px 0;
+    top: 100%;
+    left: 0;
+}
+
+/* The dropdown items */
+.dropdown-item {
+    padding: 8px 16px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-item:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu when hovering over the parent container */
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+}
+
+
+
+#login-button-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#login-button {
+    background-color: #d2691e; 
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#login-button:hover {
+    background-color: #c85f1d;  
+}
+
+
+.footer {
+    background-color: #3b1d14;  
+    color: white;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    position: relative;
+    width: 100%;
+    margin-top: auto;  
+    box-sizing: border-box;  
+}
+
+.footer a.footer-link {
+    color: #d3a87c;
+    text-decoration: none;
+}
+
+.footer a.footer-link:hover {
+    text-decoration: underline;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.newsletter-label {
+    font-weight: 500;
+}
+
+.newsletter-input {
+    padding: 0.4rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.subscribe-button {
+    background-color: #d2691e;  
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.subscribe-button:hover {
+    background-color: #c85f1d;  
+}
+
+/* --------------Home Page---------------- */
+
+
+
+#home-heading-styling {
+    margin: 0;
+    font-weight: bold;
+}
+
+#home-text{
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+
+.hero-image {
+    width: 100%;   
+    height: auto;  
+    max-height: 60vh; 
+    object-fit: cover; 
+    position: relative;
+    z-index: -1;  
+}
+.hero {
+    position: relative;
+    height: auto;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;  
+}
+.hero-content {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 20px;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;  
+    margin-bottom: 20px; 
+}
+
+.hero-content p {
+    font-size: 1.2rem;  
+    color: #fff;  
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    margin-bottom: 20px;  
+    background-color: rgba(0, 0, 0, 0.4); 
+    border-radius: 5px; 
+    padding: 10px 20px;
+}
+
+
+
+
+
+#home-about {
+    background-color: #ebebeb;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+#home-about h2 {
+    font-size: 2.5rem;
+    color: #4a2c2a; 
+    margin-bottom: 20px;
+}
+
+#home-features {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: 120px;           
+    width: 100%;            
+    background-color: #c9c7c7;
+}
+
+#home-features .container {
+    display: flex;           
+    justify-content: space-between;
+    gap: 20px;
+    width: 80%;              
+    padding: 0;
+    margin: 0;               
+}
+
+.feature {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;      
+}
+
+
+
+
+/* --------------Menu Page---------------- */
+
+.menu-table-container {
+    margin-left: auto;  
+    margin-right: auto; 
+    padding: 10px;
+    width: 80%; 
+}
+
+
+.menu-table {
+    width: 80%; 
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: auto;  
+    margin-right: auto; 
+}
+
+
+.menu-table th {
+    background-color: #4e2a1f;
+    color: white; 
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+}
+
+
+.menu-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.name-column {
+    width: 35%; 
+}
+
+
+.description-column {
+    width: 25%; 
+}
+
+
+.price-column {
+    width: 40%; 
+}
+
+
+.menu-header {
+    text-align: center;
+    font-size: 2em;
+    color: #4e2a1f; 
+    margin-bottom: 20px;
+}
+
+/* --------------Contact Us Page---------------- */
+.contact-us-form-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    color: #6f4f28;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+
+.contact-us-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.form-group {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 25px; 
+    justify-content: center; 
+    width: 100%;
+}
+
+h:outputLabel {
+    font-weight: bold;
+    margin-right: 15px; 
+    width: auto; 
+    margin-bottom: 10px; 
+    text-align: center; 
+}
+
+h:inputText, h:inputTextarea {
+    width: 100%;
+    max-width: 500px; 
+    padding: 12px; 
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    display: inline-block;
+    margin-left: 15px; 
+}
+
+h:inputText:focus, h:inputTextarea:focus {
+    outline: none;
+    border-color: #6f4f28; 
+}
+
+h:inputTextarea {
+    height: 180px; 
+    resize: vertical;
+}
+
+
+.contact-button {
+    background-color: #6f4f28;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.contact-button:hover {
+    background-color: #8b6c3b; 
+}
+
+
+.error-messages {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.success-message {
+    color: green;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+/* Google -reCaptcha API */
+.g-recaptcha {
+    margin-top: 20px;
+}
+
+/* --------------Login Page---------------- */
+
+
+.login-page-header {
+    text-align: center;
+    color: #6f4f28;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #6f4f28;
+    margin-bottom: 30px;
+}
+
+
+.login-wrapper {
+    max-width: 500px; 
+    margin: 0 auto;
+    padding: 30px; 
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+h:outputLabel {
+    font-weight: bold;
+    color: #6f4f28;
+    margin-bottom: 10px; 
+}
+
+
+#username {
+    margin-bottom: -30px; 
+}
+
+h:outputLabel[for="password"] {
+    margin-top: 30px; 
+}
+
+
+h:inputText, h:inputSecret {
+    width: 100%;
+    max-width: 350px; 
+    padding: 14px; 
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1.1rem; 
+    display: inline-block;
+    margin-bottom: 25px; 
+}
+
+h:inputText:focus, h:inputSecret:focus {
+    outline: none;
+    border-color: #6f4f28;
+}
+
+h:message, h:outputText {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+
+.login-button {
+    background-color: #6f4f28;
+    color: white;
+    padding: 14px 30px; 
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem; 
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.login-button:hover {
+    background-color: #8b6c3b; 
+}
+
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link p {
+    font-size: 0.9rem;
+    color: #6f4f28;
+}
+
+.signup-link a {
+    text-decoration: none;
+    color: #6f4f28;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    color: #8b6c3b;
+}
+
+/* ------Sign Up Page-------*/
+
+
+.signup-page-header {
+    text-align: center;
+    color: #6f4f28;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #6f4f28;
+    margin-bottom: 30px;
+}
+
+
+.signup-wrapper {
+    max-width: 500px; 
+    margin: 0 auto;
+    padding: 30px; 
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.signup-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+h:outputLabel {
+    font-weight: bold;
+    color: #6f4f28;
+    margin-bottom: 10px; 
+}
+
+
+h:inputText, h:inputSecret, h:inputTextarea {
+    width: 100%;
+    max-width: 350px; 
+    padding: 14px; 
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1.1rem; 
+    display: inline-block;
+    margin-bottom: 30px; 
+}
+
+h:inputText:focus, h:inputSecret:focus, h:inputTextarea:focus {
+    outline: none;
+    border-color: #6f4f28;
+}
+
+h:message, h:outputText {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+
+.signup-button {
+    background-color: #6f4f28;
+    color: white;
+    padding: 14px 30px; 
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem; 
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.signup-button:hover {
+    background-color: #8b6c3b; 
+}
+
+.already-have-account {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.already-have-account p {
+    font-size: 0.9rem;
+    color: #6f4f28;
+}
+
+.already-have-account a {
+    text-decoration: none;
+    color: #6f4f28;
+    font-weight: bold;
+}
+
+.already-have-account a:hover {
+    color: #8b6c3b;
+}
+/*------Account Profile------------ */
+.profile-page {
+    background-color: #f5f5f5; 
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-title {
+    color: #3e2c1c; 
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.profile-grid {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #3e2c1c; 
+}
+
+.profile-label {
+    font-weight: bold;
+    padding-right: 15px;
+}
+
+.profile-value {
+    color: #7a5230; 
+}
+
+.user-profile-logout {
+    background-color: #3e2c1c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.user-profile-logout:hover {
+    background-color: #7a5230; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #3e2c1c;
+}
+
+/*---------FAQ Page-------- */
+
+
+.h2-faq {
+text-align: center;
+margin: 30px 0;
+color: #6f4c3e; 
+        }
+
+.faq-item {
+background: white;
+margin: 10px 0;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+padding: 25px;
+transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+transform: translateY(-2px);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.h3-faq {
+margin: 0;
+cursor: pointer;
+color: #6f4c3e; 
+font-size: 1.2em;
+}
+
+.p-faq{
+    padding-top: 10px;
+}
+
+/* ----------------------------User View--------------------------*/
+
+/* -----------Add To Basket Page-----------*/
+
+.menu-summary-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; 
+    flex-wrap: nowrap; /* Prevent the items from wrapping */
+}
+
+.menu-section {
+    flex: 1; /* Allow the menu section to take available space */
+    min-width: 0; /* Ensure it doesn't cause overflow */
+}
+
+.menu-section h1 {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.styled-menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed; /* Ensures fixed layout to control column widths */
+}
+
+.styled-menu-table th, .styled-menu-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+.styled-menu-table th {
+    background-color: #f4f4f4;
+}
+
+.styled-menu-table td {
+    background-color: #fff;
+    overflow-wrap: break-word; /* Ensure longer descriptions still wrap */
+    word-wrap: break-word; /* For good cross-browser support */
+}
+
+/* Add a specific rule for the price column */
+.styled-menu-table td:nth-child(3) { /* Assuming price is the third column */
+    width: 100px; /* Adjust this value as needed to fit the price without wrapping */
+    text-align: right; /* Optional: align the price to the right */
+    overflow: hidden; /* Hide any overflow text */
+    text-overflow: ellipsis; /* Adds ellipsis for any overflowing text */
+    white-space: nowrap; /* Keep text in one line */
+}
+
+.basket-summary {
+    width: 30%; /* Fixed width for the basket section */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.basket-summary h2 {
+    font-size: 1.8em;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.basket-item {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.remove-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.remove-button:hover {
+    background-color: #c0392b;
+}
+
+.total-cost {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+}
+
+.go-to-cart-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.go-to-cart-button:hover {
+    background-color: #2980b9;
+}
+
+.add-to-cart-button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-to-cart-button:hover {
+    background-color: #27ae60;
+}
+
+.clear-cart-button {
+    background-color: #f39c12; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 100%;  
+}
+
+.clear-cart-button:hover {
+    background-color: #e67e22;  
+}
+
+.styled-basket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.styled-basket-table th, .styled-basket-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.styled-basket-table th {
+    background-color: #D7CCC8;
+    color: #3E2723;
+    font-weight: bold;
+}
+
+.remove-button,
+.checkout-button {
+    background-color: #6D4C41;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-button {
+    margin-left: 30px;
+}
+
+.remove-button:hover,
+.checkout-button:hover {
+    background-color: #5D4037;
+}
+
+.total-price-wrapper {
+    margin-left: 20px; 
+    margin-bottom: 20px; 
+}
+
+.total-price {
+    font-size: 1.4em;
+    color: #3E2723;
+    text-align: left; 
+}
+
+.empty-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 50px;
+}
+
+.back-to-menu-button {
+    margin-top: 20px;
+    margin-left: 80px;
+    background-color: #6D4C41;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* --------------------------Admin View Styling-------------------*/
+
+
+/* --------Dashboard ---------*/
+
+.greeting-text {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #4E342E;  
+}
+
+.dashboard-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+
+.dashboard-card {
+    background-color: #fff8f0;
+    border-radius: 16px;
+    padding: 25px 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    min-width: 220px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid #e0dcd6;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+}
+
+
+.card-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #5D4037;
+    margin-bottom: 10px;
+}
+
+
+.card-value {
+    font-size: 36px;
+    font-weight: bold;
+    color: #6d4c41;
+}
+
+/* -----Contact Form Page--------*/
+.contact-menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.contact-menu-table th, .contact-menu-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.contact-menu-table th {
+    background-color: #6f4f1f;
+    color: #fff;
+}
+
+.contact-menu-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* ---------All Orders Page---------  */
+
+
+.order-table {
+    width: 80%; 
+    margin: 20px auto; 
+    border-collapse: collapse;
+    border: 2px solid #6f4f1f; 
+}
+
+.order-table th, .order-table td {
+    padding: 12px;
+    text-align: left;
+    border: none; 
+}
+
+.order-table th {
+    background-color: #6f4f1f; 
+    color: white;
+}
+
+.order-table tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+/* ----- Order Items Table ----- */
+.order-items-table {
+    width: 100%; 
+    margin: 10px 0;
+    border-collapse: collapse;
+    border: 2px solid #6f4f1f;  
+}
+
+.order-items-table th, .order-items-table td {
+    padding: 8px;
+    text-align: left;
+    border: none; 
+}
+
+.order-items-table th {
+    background-color: #6f4f1f;
+    color: white;
+}
+
+.order-items-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.complete-button {
+    background-color: #4CAF50; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.complete-button:hover {
+    background-color: #45a049; 
+}

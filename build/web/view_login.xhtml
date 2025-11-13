@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Coffee Shop | Admin Login</title>
+        <h:outputStylesheet name="css/cssLayout.css" />
+    </h:head>
+    <h:body>
+        <ui:composition template="View_Template.xhtml">
+            <ui:define name="content">
+
+                <!-- Login Form -->
+                <div class="login-wrapper">
+                    <h:form class="login-form-container">
+                        <h1>Login to Your Account</h1>
+                        <h:panelGrid columns="2" style="width: 100%;">
+                            <h:outputLabel value="Username" for="username"/> 
+                            <h:panelGroup>
+                                <br/>
+                                <h:inputText id="username" value="#{loginBean.username}" />
+                            </h:panelGroup>
+                            
+                            <h:outputLabel value="Password" for="password"/>
+                            <h:panelGroup>
+                                <br/>
+                                <h:inputSecret id="password" value="#{loginBean.password}" />
+                            </h:panelGroup>
+                        </h:panelGrid>
+                        
+                        <!-- Display error messages based on invalid inputs -->
+                        <h:message for="username" styleClass="error-message"/>
+                        <h:message for="password" styleClass="error-message"/>
+                        
+                        <!-- Display error messages invalid username / password -->
+                        <h:outputText id="usernameError" value="Incorrect Username" 
+                                      rendered="#{loginBean.incorrectUsername}" styleClass="error-message"/>
+                        <h:outputText id="passwordError" value="Incorrect Password" 
+                                      rendered="#{loginBean.incorrectPassword}" styleClass="error-message"/>
+                          
+                        <!-- Sign-up link -->
+                        <div class="signup-link">
+                            <p>Don't have an account? <a href="view_signup.xhtml">Sign Up</a></p>
+                        </div>
+                        
+                        <!-- Login Button -->
+                        <h:commandButton value="Login" action="#{loginBean.login}" styleClass="login-button">
+                            <f:ajax execute="@form" render="@form"/>
+                        </h:commandButton>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>

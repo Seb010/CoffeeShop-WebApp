@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Coffee Shop | Menu</title>
+    <h:outputStylesheet name="css/styles.css"/>
+</h:head>
+
+<h:body>
+    <ui:composition template="View_Template.xhtml">
+        <ui:define name="content">
+
+            <!-- Render the menu items from the database -->
+            <h:dataTable value="#{menuBeans.getMenu()}" var="item" styleClass="menu-table">
+                <h:column>
+                    <f:facet name="header" class="table-header">Name</f:facet>
+                    <h:outputText value="#{item.name}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header" class="table-header">Description</f:facet>
+                    <h:outputText value="#{item.description}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header" class="table-header">Price</f:facet>
+                    <h:outputText value="£ #{item.price}" />
+                </h:column>
+            </h:dataTable>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

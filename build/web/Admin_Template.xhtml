@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title><ui:insert name="title">Coffee Shop</ui:insert></title>
+    <h:outputStylesheet name="css/cssLayout.css"/>
+    <h:outputStylesheet name="css/default.css"/>
+</h:head>
+
+<h:body>
+    <div class="page-container">
+        <header class="header">
+            <div class="logo-container">
+                <p class="logo">☕ Coffee Shop</p>
+            </div>
+           <nav class="nav-container">
+               
+                <h:form id="nav">
+                    <ul class="menu">
+                        <h:commandLink value="Dashboard" action="admin_dashboard.xhtml" class="nav-link"></h:commandLink>
+                        <h:commandLink value="Manage Form" action="admin_contactForm" class="nav-link"></h:commandLink>
+                        <h:commandLink value="Manage Menu" action="/Pages/products/List" class="nav-link"></h:commandLink>
+                        <h:commandLink value="Manage Users" action="/Pages/users/List" class="nav-link"></h:commandLink>
+
+                        <!-- Dropdown for 'Manage Orders' -->
+                        <div class="dropdown-container">
+                            <h:commandLink value="Manage Orders" action="admin_viewAllOrders" class="nav-link">
+                                <i class="fa-solid fa-down-long"></i>
+                            </h:commandLink>
+                            <div class="dropdown-menu">
+                                <h:commandLink value="View Completed Orders" action="admin_completedOrders" class="dropdown-item"></h:commandLink>
+                                <h:commandLink value="View Pending Orders" action="admin_pendingOrders" class="dropdown-item"></h:commandLink>
+                            </div>
+                        </div>
+                    </ul>
+                </h:form>
+            </nav>
+
+            <div id="login-button-container">
+                <h:outputLink value="view_login.xhtml" id="login-button">
+                    <i class="fa-regular fa-user"></i> Sign out
+                </h:outputLink>
+            </div>
+        </header>
+
+        <div id="content" class="main-content">
+            <ui:insert name="content"/>
+        </div>
+            <script src="https://kit.fontawesome.com/c67838f452.js" crossorigin="anonymous"></script>
+        </div>
+</h:body>
+</html>

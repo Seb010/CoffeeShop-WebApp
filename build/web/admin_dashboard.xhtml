@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Admin Home Page</title>
+        <h:outputStylesheet name="css/dashboard.css" />
+        
+        <!-- Font Awesome CDN for Icons -->
+        <h:outputStylesheet name="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </h:head>
+    <h:body>
+        <ui:composition template="Admin_Template.xhtml">
+            <ui:define name="content">
+                <!-- Dashboard Wrapper -->
+                <div class="dashboard-wrapper">
+                    
+                    <!-- Greeting Header -->
+                    <div class="dashboard-header-container">
+                        <!-- <p class="greeting-text">Greetings, #{loginBean.fullName}!</p> -->
+                        <p class="greeting-text">Greetings Admin, </p>
+                    </div>
+
+                    <!-- Dashboard Stats Cards -->
+                    <div class="dashboard-cards-container">
+                        <!-- Completed Orders -->
+                        <div class="dashboard-card">
+                            <i class="fas fa-check-circle card-icon"></i> <!-- Icon for Completed Orders -->
+                            <h3 class="card-title">Total Completed Orders</h3>
+                            <p class="card-value">#{viewOrdersBean.getCompletedOrdersCount()}</p>
+                        </div>
+
+                        <!-- Pending Orders -->
+                        <div class="dashboard-card">
+                            <i class="fas fa-clock card-icon"></i> <!-- Icon for Pending Orders -->
+                            <h3 class="card-title">Pending Orders</h3>
+                            <p class="card-value">#{viewOrdersBean.getPendingOrdersCount()}</p>
+                        </div>
+
+                        <!-- Total Users -->
+                        <div class="dashboard-card">
+                            <i class="fas fa-users card-icon"></i> <!-- Icon for Users -->
+                            <h3 class="card-title">Total Users</h3>
+                            <p class="card-value">#{loginBean.totalRegisteredUsers}</p>
+                        </div>
+
+                        <!-- Total Admins -->
+                        <div class="dashboard-card">
+                            <i class="fas fa-user-shield card-icon"></i> <!-- Icon for Admins -->
+                            <h3 class="card-title">Total Admins</h3>
+                            <p class="card-value">#{loginBean.totalAdmins}</p>
+                        </div>
+
+                        <!-- Contact Forms -->
+                        <div class="dashboard-card">
+                            <i class="fas fa-envelope card-icon"></i> <!-- Icon for Contact Forms -->
+                            <h3 class="card-title">Contact Forms</h3>
+                            <p class="card-value">#{contactusBean.totalContactForms}</p>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
+

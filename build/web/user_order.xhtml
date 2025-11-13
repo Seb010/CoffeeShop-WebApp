@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Coffee Shop | Menu</title>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+    </h:head>
+    <h:body>
+    <ui:composition template="User_Template.xhtml">
+        <ui:define name="content">
+            <div class="container">
+                <div class="menu-summary-container">
+
+                    <!-- Menu Section -->
+                    <div class="menu-section">
+                        <h1>Coffee Shop Menu</h1>
+                        <h:form id="menuForm">
+                            <h:dataTable value="#{menuBeans.menu}" var="item" id="menuTable" class="styled-menu-table">
+                                <h:column>
+                                    <f:facet name="header">Name</f:facet>
+                                    #{item.name}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Description</f:facet>
+                                    #{item.description}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Price</f:facet>
+                                    £ #{item.price}
+                                </h:column>
+                                <h:column>
+                                    <f:facet name="header">Action</f:facet>
+                                    <h:commandButton value="Add to Basket"
+                                                     action="#{menuBeans.addToBasket(item.id, item.name, item.description, item.price)}"
+                                                     styleClass="add-to-cart-button">
+                                        <f:ajax execute="@form" render="basketSummaryForm" />
+                                    </h:commandButton>
+                                </h:column>
+                            </h:dataTable>
+                        </h:form>
+                    </div>
+
+                    <!-- Basket Summary Section -->
+                    <div class="basket-summary">
+                        <h2>Your Basket Summary</h2>
+                        <h:form id="basketSummaryForm">
+                            <ui:repeat value="#{menuBeans.basket}" var="basketItem" rendered="#{not empty menuBeans.basket}">
+                                <p class="basket-item">
+                                    #{basketItem.name} x #{basketItem.quantity}
+
+                                    <!-- Remove Button with AJAX -->
+                                    <h:commandButton value="Remove"
+                                                     action="#{menuBeans.removeFromBasket(basketItem.productID)}"
+                                                     styleClass="remove-button">
+                                        <f:ajax execute="@form" render="basketSummaryForm" />
+                                    </h:commandButton>
+                                </p>
+                            </ui:repeat>
+
+                            <h:outputText value="Total: £ #{menuBeans.getTotalCost()}"
+                                          styleClass="total-cost"
+                                          rendered="#{not empty menuBeans.basket}" />
+                            <br /><br />
+
+                            <!-- Go to Cart Button -->
+                            <h:commandButton value="Go to Cart"
+                                             action="user_basket.xhtml?faces-redirect=true"
+                                             styleClass="go-to-cart-button"
+                                             rendered="#{not empty menuBeans.basket}" />
+
+                            <!-- Clear Basket Button with AJAX -->
+                            <h:commandButton value="Clear Cart"
+                                             action="#{menuBeans.clearBasket()}"
+                                             styleClass="clear-cart-button"
+                                             rendered="#{not empty menuBeans.basket}">
+                                <f:ajax execute="@form" render="basketSummaryForm" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
+

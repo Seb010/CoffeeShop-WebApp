@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title><ui:insert name="title">Coffee Shop</ui:insert></title>
+    <meta charset="UTF-8"/>
+    <h:outputStylesheet name="css/cssLayout.css"/>
+    <h:outputStylesheet name="css/default.css"/>
+</h:head>
+
+<h:body>
+    <div class="page-container">
+        <header class="header">
+            <div class="logo-container">
+                <p class="logo">☕ Coffee Shop</p>
+            </div>
+            <nav class="nav-container">
+                <h:form id="nav">
+                    <ul class="menu">
+                        
+                <h:commandLink value="Profile" action="user_profile.xhtml" class="nav-link"></h:commandLink>
+                
+                <h:commandLink value="Order" action="user_order.xhtml" class="nav-link"></h:commandLink>
+                
+                <h:commandLink value="FAQ" action="user_FAQ.xhtml" class="nav-link"></h:commandLink>
+            </ul>
+                        
+                </h:form>
+            </nav>
+            <div id="login-button-container">
+                <h:outputLink value="user_basket.xhtml" id="basket-link" styleClass="basket-link">
+                    <i class="fa-solid fa-cart-shopping"></i> Basket
+                </h:outputLink>
+
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <div id="content" class="main-content">
+            <ui:insert name="content"/>
+        </div>
+
+        <!-- FOOTER -->
+        <div id="bottom" class="footer">
+            <div class="footer-left">
+            <p><i class="fa-regular fa-copyright"></i> 2025 Coffee Shop. All Rights Reserved.</p>
+        </div>
+
+
+            <div class="footer-center">
+                <p><a href="terms_conditions.xhtml" target="_blank" class="footer-link">Terms And Conditions</a></p>
+            </div>
+
+            <div class="footer-right">
+                <h:form id="newsletterForm" styleClass="newsletter-form">
+                    <h:outputLabel for="email" value="Subscribe" styleClass="newsletter-label" />
+                    <h:inputText id="email" styleClass="newsletter-input" required="true"/>
+                    <h:commandButton value="Subscribe" styleClass="subscribe-button"/>
+                </h:form>
+            </div>
+
+            <script src="https://kit.fontawesome.com/c67838f452.js" crossorigin="anonymous"></script>
+        </div>
+    </div>
+</h:body>
+</html>

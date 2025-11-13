@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewContactTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewContactLabel_id}"/>
+                    <h:outputText value="#{contactController.selected.id}" title="#{bundle.ViewContactTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewContactLabel_firstName}"/>
+                    <h:outputText value="#{contactController.selected.firstName}" title="#{bundle.ViewContactTitle_firstName}"/>
+                    <h:outputText value="#{bundle.ViewContactLabel_lastName}"/>
+                    <h:outputText value="#{contactController.selected.lastName}" title="#{bundle.ViewContactTitle_lastName}"/>
+                    <h:outputText value="#{bundle.ViewContactLabel_email}"/>
+                    <h:outputText value="#{contactController.selected.email}" title="#{bundle.ViewContactTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewContactLabel_message}"/>
+                    <h:outputText value="#{contactController.selected.message}" title="#{bundle.ViewContactTitle_message}"/>
+                    <h:outputText value="#{bundle.ViewContactLabel_formdate}"/>
+                    <h:outputText value="#{contactController.selected.formdate}" title="#{bundle.ViewContactTitle_formdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{contactController.destroyAndView}" value="#{bundle.ViewContactDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewContactEditLink}"/>
+                <br />
+                <h:commandLink action="#{contactController.prepareCreate}" value="#{bundle.ViewContactCreateLink}" />
+                <br />
+                <h:commandLink action="#{contactController.prepareList}" value="#{bundle.ViewContactShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewContactIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

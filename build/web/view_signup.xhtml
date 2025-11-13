@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="jakarta.faces.core">
+      
+    <h:head>
+        <title>Coffee Shop | Sign Up</title>
+    </h:head>
+
+    <h:body>
+         <ui:composition template="View_Template.xhtml">
+            <ui:define name="content">
+               
+                <!-- Sign Up Form -->
+                <div class="login-wrapper" id="sign-up-form">
+                    <h:form class="login-form-container">
+                        <h1>Create Your Account</h1>
+
+                        <!-- Display validation messages above the form -->
+                        <h:messages globalOnly="true" styleClass="error-message" />
+
+                        <h:panelGrid columns="2" style="width: 100%;">
+
+                            <h:outputLabel value="Full Name" for="fullName"/>
+                            <h:inputText id="fullName" value="#{registerBean.fullname}" required="true" requiredMessage="Full name is required" />
+
+                            <h:outputLabel value="Email" for="email"/>
+                            <h:inputText id="email" value="#{registerBean.email}" required="true" requiredMessage="Email is required" />
+
+                            <h:outputLabel value="Phone Number" for="phoneNumber"/>
+                            <h:inputText id="phoneNumber" value="#{registerBean.phone}" required="true" requiredMessage="Phone number is required" />
+
+                            <h:outputLabel value="Username" for="username"/>
+                            <h:inputText id="username" value="#{registerBean.username}" required="true" requiredMessage="Username is required" />
+
+                            <h:outputLabel value="Password" for="password"/>
+                            <h:inputSecret id="password" value="#{registerBean.password}" required="true" requiredMessage="Password is required" />
+
+                        </h:panelGrid>
+
+                        <!-- AJAX for form validation -->
+                        <h:commandButton value="Sign Up" 
+                                         action="#{registerBean.register()}"
+                                         styleClass="login-button">
+                            <f:ajax execute="@form" render="messages successMessageGroup" />
+                        </h:commandButton>
+
+                         <!-- Messages panel for displaying errors -->
+                        <h:panelGroup id="messages">
+                            <h:messages styleClass="error-messages" globalOnly="false" />
+                        </h:panelGroup>
+
+                          <!-- Success message panel -->
+                        <h:panelGroup id="successMessageGroup">
+                            <h:outputText value="Account created successfully! You can now log in." 
+                                          rendered="#{registerBean.signupSuccess}" 
+                                          styleClass="success-message" />
+                        </h:panelGroup>
+                        
+                        <div class="signup-link">
+                            <p>Already have an account? <a href="view_login.xhtml">Login</a></p>
+                       </div>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
